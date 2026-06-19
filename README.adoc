@@ -11,6 +11,13 @@ image:https://img.shields.io/badge/Philosophy-Palimpsest-indigo.svg[Palimpsest,l
 
 A Discord bot promoting sustainability in the garment and fashion industry through education, tracking, and actionable insights.
 
+[NOTE]
+====
+Canonical home for GSBot is this repo: `https://github.com/hyperpolymath/gsbot`.
+The fleet checkout under `gitbot-fleet/bots/gsbot` is a historical mirror and
+should not be treated as the source of truth.
+====
+
 == Overview
 
 GSBot helps users make informed decisions about clothing by providing:
@@ -232,8 +239,8 @@ gsbot/
 [source,bash]
 ----
 # Clone repository
-git clone https://github.com/hyperpolymath/gitbot-fleet.git
-cd gitbot-fleet/bots/gsbot
+git clone https://github.com/hyperpolymath/gsbot.git
+cd gsbot
 
 # Configure environment
 cp .env.example .env

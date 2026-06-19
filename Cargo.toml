@@ -6,8 +6,8 @@ edition = "2021"
 license = "MPL-2.0"
 authors = ["Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"]
 description = "Garment Sustainability Bot — a Discord bot promoting sustainability in the garment and fashion industry (Rust/SPARK)"
-repository = "https://github.com/hyperpolymath/gitbot-fleet"
-keywords = ["discord", "sustainability", "fashion", "gitbot-fleet"]
+repository = "https://github.com/hyperpolymath/gsbot"
+keywords = ["discord", "sustainability", "fashion", "gsbot"]
 categories = ["command-line-utilities"]
 
 [[bin]]
