@@ -1,0 +1,317 @@
+<!--
+SPDX-License-Identifier: CC-BY-SA-4.0
+SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+-->
+
+[![License: MPL-2.0](https://img.shields.io/badge/License-MPL--2.0-blue.svg)](https://github.com/hyperpolymath/palimpsest-license)
+[![Palimpsest](https://img.shields.io/badge/Philosophy-Palimpsest-indigo.svg)](https://github.com/hyperpolymath/palimpsest-license)
+
+A Discord bot promoting sustainability in the garment and fashion
+industry through education, tracking, and actionable insights.
+
+> [!NOTE]
+> Canonical home for GSBot is this repo:
+> [`https://github.com/hyperpolymath/gsbot`](https://github.com/hyperpolymath/gsbot).
+> The fleet checkout under `gitbot-fleet/bots/gsbot` is a historical
+> mirror and should not be treated as the source of truth.
+
+# Overview
+
+GSBot helps users make informed decisions about clothing by providing:
+
+- Sustainability scores for garments and materials
+
+- Environmental impact analysis (water, carbon, energy)
+
+- Sustainable brand discovery and comparison
+
+- Personalized care instructions to extend garment life
+
+- Gamification to encourage sustainable habits
+
+# Architecture
+
+```text
+Discord Platform
+       |
+       v
++------------------+
+|   Bot Layer      |  poise 0.6 / serenity 0.12, prefix commands
+|  (command mods)  |  (one module per former cog)
++--------+---------+
+         |
+         v
++------------------+
+|  domain.rs       |  PURE scoring kernel — the SPARK seam
+|  (C-ABI in ffi)  |  (formally-verifiable, substitutable)
++--------+---------+
+         |
+         v
++------------------+
+|  Service Layer   |  query/service logic over sqlx
++--------+---------+
+         |
+         v
++------------------+
+|   Data Layer     |  sqlx 0.8, SQLite, sqlx::migrate!
++--------+---------+
+         |
+         v
++------------------+
+|   SQLite         |  (SQLite only — no Postgres)
++------------------+
+```
+
+This bot is implemented in **Rust** (framework: poise/serenity;
+persistence: sqlx/SQLite). It was ported from a now-deleted Python
+prototype with behaviour preserved. The `src/domain.rs` scoring kernel
+is pure and total and exposes a stable C ABI so a formally-verified
+SPARK/Ada module can be linked in its place with no caller changes — the
+architecture’s verification seam.
+
+[![Rust](https://img.shields.io/badge/Rust-1.x-orange.svg)](https://www.rust-lang.org/)
+[![RSR Compliant](https://img.shields.io/badge/RSR-Bronze-cd7f32.svg)](RSR.md)
+[![TPCF Perimeter 3](https://img.shields.io/badge/TPCF-Perimeter%203-success.svg)](TPCF.md)
+
+## Sustainability Commands
+
+| Command | Description |
+|----|----|
+| `!sustainability` `<garment>` | Get sustainability score with full environmental impact breakdown |
+| `!alternatives` `<garment>` | Find more sustainable options in the same category |
+| `!care` `<garment>` | Material-specific care tips to extend garment life |
+| `!tips` | Random sustainability tips for conscious consumption |
+
+## Material Analysis
+
+| Command | Description |
+|----|----|
+| `!impact` `<material>` | Environmental scores: water, carbon, chemicals, energy, biodegradability |
+| `!compare` `<mat1>` `<mat2>` | Side-by-side material comparison with winner per category |
+| `!search` `<query>` | Search materials and garments by name or description |
+
+## Brand Intelligence
+
+| Command | Description |
+|----|----|
+| `!brands` | Top 10 sustainable brands by overall rating |
+| `!brands` `<name>` | Detailed profile: ratings, certifications, transparency, Good On You score |
+
+## Gamification
+
+| Command | Description |
+|----|----|
+| `!profile` | Your rank, level, points, query count, preferences |
+| `!leaderboard` | Top 10 sustainability champions |
+| `!setpreference` `<type>` `<value>` | Configure materials, budget (\$-\$\$\$\$), priority (environmental/social/animal_welfare) |
+
+## Points & Ranks
+
+| Action               | Points |
+|----------------------|--------|
+| Sustainability check | +5     |
+| Find alternatives    | +5     |
+| Material impact      | +5     |
+| Brand lookup         | +5     |
+| Compare materials    | +7     |
+| Care instructions    | +3     |
+| Read tips            | +2     |
+
+Ranks progress through: Sustainability Learner → Conscious Consumer →
+Green Enthusiast → Eco Warrior → Sustainability Champion
+
+# Data Models
+
+## Material
+
+- 5 environmental scores (0-100): water usage, carbon footprint,
+  biodegradability, chemical usage, energy consumption
+
+- Production metrics: water L/kg, CO2 kg/kg, energy MJ/kg
+
+- Properties: biodegradable, recycling potential, durability
+
+- Types: natural, synthetic, semi-synthetic, recycled, organic
+
+## Garment
+
+- Category (shirt, pants, dress, etc.)
+
+- Material composition (many-to-many relationship)
+
+- Lifespan and typical wear count
+
+- Care instructions and washing frequency
+
+- Calculated sustainability score with lifespan multiplier
+
+## Brand
+
+- 3 rating dimensions: environmental, labor, animal welfare
+
+- 5 certification flags: B Corp, Fair Trade, Organic, Recycled
+  Materials, Carbon Neutral
+
+- Transparency score
+
+- Good On You rating integration
+
+## User
+
+- Discord ID and username
+
+- Points, level, queries count
+
+- Preferences: materials, budget range, sustainability priority
+
+# Project Structure
+
+```text
+gsbot/
++-- src/
+|   +-- main.rs                 # gsbot binary entry point
+|   +-- bot.rs                  # poise/serenity wiring, intents, errors
+|   +-- lib.rs                  # library root (Data, Context, Error)
+|   +-- config.rs               # env config + defaults
+|   +-- db.rs                   # SQLite pool + sqlx::migrate!
+|   +-- domain.rs               # PURE scoring kernel — the SPARK seam
+|   +-- models.rs               # row structs
+|   +-- services.rs             # query/service layer
+|   +-- sustainability.rs       # analyzer helpers
+|   +-- cache.rs                # in-process cache
+|   +-- fixtures.rs             # sample-data loader
+|   +-- logging.rs              # tracing init
+|   +-- commands/
+|   |   +-- mod.rs              # command registry, colours, admin gate
+|   |   +-- sustainability.rs   # sustainability, alternatives, care, tips
+|   |   +-- materials.rs        # impact, compare, search
+|   |   +-- brands.rs           # brands
+|   |   +-- user_commands.rs    # profile, leaderboard, setpreference
+|   |   +-- admin.rs            # loaddata, stats, announce
+|   +-- bin/
+|       +-- load_fixtures.rs    # gsbot-load-fixtures
+|       +-- export_data.rs      # gsbot-export-data
+|       +-- backup_db.rs        # gsbot-backup-db
++-- migrations/
+|   +-- 0001_init.sql           # schema (applied via sqlx::migrate!)
++-- docs/
+|   +-- API.md                  # Full command reference
+|   +-- ARCHITECTURE.md         # System design
+|   +-- DEPLOYMENT.md           # Deployment guide
++-- ROADMAP.adoc                # Development roadmap
++-- CLAUDE.md                   # AI assistant instructions
++-- docker-compose.yml
++-- Containerfile
++-- Cargo.toml
++-- Justfile                    # build/test/lint recipes
+```
+
+# Quick Start
+
+## Prerequisites
+
+- A Rust toolchain (stable; `cargo`)
+
+- Optionally [`just`](https://github.com/casey/just) for the convenience
+  recipes
+
+- Discord Bot Token (from Discord Developer Portal)
+
+## Installation
+
+```bash
+# Clone repository
+git clone https://github.com/hyperpolymath/gsbot.git
+cd gsbot
+
+# Configure environment
+cp .env.example .env
+# Edit .env with your DISCORD_TOKEN
+
+# Build
+just build            # or: cargo build
+
+# Load sample data (optional) — also runs migrations
+just load-data        # or: cargo run --bin gsbot-load-fixtures
+
+# Run bot — migrations are applied automatically at startup
+just run              # or: cargo run --bin gsbot
+```
+
+## Docker
+
+```bash
+# Build and run (compose builds with dockerfile: Containerfile)
+docker compose up -d
+
+# View logs
+docker compose logs -f bot
+```
+
+# Configuration
+
+Environment variables (`.env`):
+
+| Variable | Description | Default |
+|----|----|----|
+| `DISCORD_TOKEN` | Bot authentication token | Required |
+| `DISCORD_PREFIX` | Command prefix | `!` |
+| `DATABASE_URL` | SQLite connection string (SQLite only) | `sqlite:///<base>/data/gsbot.db` |
+| `ENABLE_CACHING` | Enable query caching | `True` |
+| `CACHE_TTL` | Cache time-to-live (seconds) | `3600` |
+| `LOG_LEVEL` | Logging verbosity | `INFO` |
+
+# Testing
+
+```bash
+# Run all tests
+just test                    # or: cargo test --all-targets
+
+# Lint (clippy, warnings as errors)
+just lint                    # or: cargo clippy --all-targets -- -D warnings
+
+# Format
+just format                  # or: cargo fmt --all
+```
+
+# Documentation
+
+- [API Reference](docs/API.md) - Complete command documentation
+
+- [Architecture](docs/ARCHITECTURE.md) - System design and patterns
+
+- [Deployment](docs/DEPLOYMENT.md) - Production deployment guide
+
+- [Roadmap](ROADMAP.adoc) - Development roadmap and future features
+
+# Contributing
+
+See <a href="CONTRIBUTING.md" class="md">CONTRIBUTING</a> for
+development guidelines.
+
+Key areas:
+
+1.  Data curation (verified material/brand datasets)
+
+2.  Test coverage expansion
+
+3.  Documentation improvements
+
+4.  Localization support
+
+# License
+
+MPL-2.0
+
+This ensures any modifications or derivative works remain open source,
+protecting the sustainability mission of the project.
+
+# Resources
+
+- [Fashion Revolution](https://www.fashionrevolution.org/)
+
+- [Good On You](https://goodonyou.eco/)
+
+- [Sustainable Apparel Coalition](https://apparelcoalition.org/)
+
+- [Ellen MacArthur Foundation](https://ellenmacarthurfoundation.org/)
