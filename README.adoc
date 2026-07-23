@@ -12,9 +12,10 @@ image:https://img.shields.io/badge/Philosophy-Palimpsest-indigo.svg[Palimpsest,l
 :icons: font
 :source-highlighter: rouge
 
-A Discord bot promoting sustainability in the garment and fashion industry through education, tracking, and actionable insights.
+A bot promoting sustainability in the garment and fashion industry through education, tracking, and actionable insights.
 
 [NOTE]
+
 ====
 Canonical home for GSBot is this repo: `https://github.com/hyperpolymath/gsbot`.
 The fleet checkout under `gitbot-fleet/bots/gsbot` is a historical mirror and
@@ -46,7 +47,7 @@ Discord Platform
          v
 +------------------+
 |  domain.rs       |  PURE scoring kernel — the SPARK seam
-|  (C-ABI in ffi)  |  (formally-verifiable, substitutable)
+|  (Idris2ABI wiht Zig ffi)  |  (formally-verifiable, substitutable)
 +--------+---------+
          |
          v
@@ -182,8 +183,6 @@ Ranks progress through: Sustainability Learner -> Conscious Consumer -> Green En
 
 === User
 
-* Discord ID and username
-* Points, level, queries count
 * Preferences: materials, budget range, sustainability priority
 
 == Project Structure
@@ -277,14 +276,6 @@ Environment variables (`.env`):
 [cols="1,2,1"]
 |===
 |Variable |Description |Default
-
-|`DISCORD_TOKEN`
-|Bot authentication token
-|Required
-
-|`DISCORD_PREFIX`
-|Command prefix
-|`!`
 
 |`DATABASE_URL`
 |SQLite connection string (SQLite only)
