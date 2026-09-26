@@ -322,7 +322,7 @@ Future verification path (the *SPARK seam* is already in place):
 
 == Contributing
 
-See `CONTRIBUTING.md` for development guidelines.
+See `.github/CONTRIBUTING.md` for development guidelines.
 
 Priority areas for contribution:
 

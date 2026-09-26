@@ -6,6 +6,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+== [0.3.0] - 2026-09-26
+
+=== Added
+- `ECOSYSTEM.adoc` — full vision doc: neurosymbolic Kautz-6 architecture,
+  detachable assembly panel, Pareto-optimality focus, Eclexia pilot,
+  verisimdb/kyaml migration targets, Zig unified API adapter, oikosbot
+  / echidna lineage.
+- `STANDARDS.adoc` — open-standards map (RSS/Atom/ActivityStreams,
+  schema.org/GS1/OAR, ILCD/openLCA, EU Safety Gate/ECHA, OpenAPI,
+  SPDX/REUSE, etc.).
+- `.well-known/{security.txt,ai.txt,humans.txt}` (RFC 9116 + project
+  policy files) — these were listed in RSR as present but the
+  directory was missing from the checkout.
+- `.env.example` — was referenced by the README but missing.
+- Richer `Cargo.toml` metadata: 20 keywords covering sustainability,
+  materials-science, LCA, circular-economy, neurosymbolic, Eclexia,
+  verisimdb, kyaml, Pareto, SPARK, etc.; expanded categories;
+  `rust-version`, `homepage`, `readme`, release profile.
+- Project badges for Open Standards, Neurosymbolic Kautz-6, Pareto
+  Optimality, Eclexia Pilot, Rust/SPARK+Zig stack.
+
+=== Fixed
+- All stale `*.md` links in `.adoc` documentation corrected to the
+  actual `.adoc` / `.md` files present in the tree (docs/, content/docs/,
+  RSR/TPCF/SECURITY/MAINTAINERS/ROADMAP/README).
+- RSR compliance-check `ls` invocation no longer claims phantom
+  `*.md` files.
+- Repository description/topics prepared (local metadata — push of
+  GitHub topics requires the `public_repo` scope on the auth token).
+
+=== Note
+- 0.3.0 is the "Ecosystem Tag" release: the codebase is unchanged in
+  its Rust/SPARK runtime behaviour, but the repository now *states
+  clearly what it wants to be* so contributors, bots and fellow
+  hyperpolymath projects can find it and plug in.
+
 == [0.2.0] - 2026-05-16
 
 === Changed

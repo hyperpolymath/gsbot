@@ -1,0 +1,174 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+= GSBot Ecosystem & Vision
+:toc: left
+:toclevels: 3
+:icons: font
+
+== Why "GSBot"?
+
+Yes, the name is a gentle double entendre.  The pleasure here is *systems
+pleasure* — hitting the *sustainability sweet-spot* in garment production
+where material, labour, ecology and economics all come together.  GSBot
+is the **G**arment **S**ustainability **Bot**, the materials-science &
+maths co-pilot for fashion and textiles specialists who want to produce
+beautiful things *without* costing the earth, the worker, or the
+wearer.
+
+It is a joke that is also completely serious.
+
+== Project at a Glance
+
+GSBot is a **neurosymbolic system in the Kautz level-6 sense** — a
+tight coupling of:
+
+* *Neural* perception & language (chat UI, material-image recognition,
+  free-text queries over catalogues, news and safety feeds);
+* *Symbolic* reasoning (materials science, LCA arithmetic, regulatory
+  constraints, Pareto-front optimisation over ecological/economic axes);
+* A *dashboard* surface (material images, impact breakdowns, brand
+  profiles, live feeds); and
+* A *detachable assembly panel* that lets you see, swap, and recompute
+  the bill of materials / panels / trims, recalculating ecological vs
+  economic cost with every change.
+
+It is *not* a "design what looks good on a catwalk" tool.  It is a
+*production engineering & sourcing* tool: what bits you need, what they
+cost the planet and the people, and what swaps move you toward
+Pareto-optimal outcomes.
+
+== Triple-Bottom-Line, Axiologically Honest
+
+The evaluation kernel is built around the **triple bottom line**:
+
+* *Environment* — water (L/kg), CO₂ (kg/kg), energy (MJ/kg), chemicals,
+  biodegradability, microfibre shedding, circularity/recyclability.
+* *People* — fair wage, safe conditions (integration with safety-notice
+  feeds), transparency, forced-labour risk indicators, modern-slavery
+  disclosures.
+* *Prosperity* — price-per-wear, durability-weighted cost, regional
+  pricing via catalogue APIs, repair vs replace trade-offs.
+
+The system is *axiologically explicit*: value trade-offs are surfaced,
+not hidden.  You can weight the axes; the tool returns the
+*Pareto frontier* of non-dominated options rather than a single
+"winner", drawing on the same lineage as `oikosbot` and evaluated with
+the `echidna` multi-objective analysis harness.
+
+== Target Stack (Dogfooding the hyperpolymath Estate)
+
+This is an early pilot — we take real risks here, and things may break.
+The goal is to *learn in public*.
+
+[cols="2,4",options="header"]
+|===
+|Component |Role
+
+|*Rust/SPARK* (current)
+|The running bot: `poise`/`serenity` Discord surface over a pure/total
+scoring kernel in `src/domain.rs`, already exported via a stable C ABI
+(the *SPARK seam*) so formally-verified numeric code can be linked in.
+
+|*Eclexia* (pilot language)
+|First real pilot of the Eclexia language for the domain rules, ontology
+and optimisation DSL.  Eclexia modules compile to the C ABI seam that
+`domain.rs` already exposes, so adoption is incremental.
+
+|*verisimdb* (core database)
+|Target underpinning database — verisimdb for truth-tracked,
+provenance-aware material and brand records, with LMDB/Dragonfly
+hot-paths where speed matters.  SQLite remains the boot-strap store for
+now; the service layer abstracts the migration.
+
+|*kyaml* (configuration)
+|kyaml (the hyperpolymath YAML replacement with strict typing and
+round-trip comments) is used for fixture data, user preference
+templates, and feed definitions *from the start* — no plain YAML.
+
+|*Zig unified API adapter*
+|A Zig-side adapter module that presents a uniform interface for
+external catalogue APIs, safety-notification systems (e.g. EU Safety
+Gate / RAPEX, CPSC recalls), live pricing feeds, and certification
+registries.  The Rust side talks to it over the same FFI family as the
+SPARK seam.
+
+|*rsr-template-repo*
+|Repository shape, governance, CI, licensing and documentation follow
+the Rhodium Standard Repository template used across the fleet.
+
+|*oikosbot / echidna lineage*
+|Pareto-optimality is the *most fundamental* design primitive.
+oikosbot's multi-criteria decision kernels inform the scoring and
+trade-off surfaces; echidna is used for property-based exploration of
+the optimisation landscape (e.g. "does nudging cotton's water score by
+X change the recommended swap?").
+
+|*gitbot-fleet integration*
+|Repository management, triage, labels, security scanning and
+compliance checks inherited from the hyperpolymath gitbot fleet.
+|===
+
+== Detachable Assembly Panel
+
+One of the most distinctive UX surfaces is the *detachable assembly
+panel* — a UI component (in the web dashboard, and embeddable as a
+Discord embed view) that represents a garment as a collection of
+swappable panels/fasteners/trims, each of which has:
+
+* a *material* selection;
+* a *source / supplier* with live catalogue linkage through the Zig
+  API adapter;
+* an *ecological cost vector* (water, CO₂, energy, chemicals, waste);
+* an *economic cost* (live price where available); and
+* *social* indicators (wage fairness, safety notices).
+
+Swap a panel (e.g. conventional-cotton pocket lining → GOTS organic
+cotton / hemp blend) and the tool *recomputes the whole bill*, shows
+you which alternatives sit on the Pareto frontier, and lets you see
+what each marginal improvement costs in currency and in lead time.
+
+This is *not* "fashion design" — it is *production engineering with
+sustainability as a first-class dimension*.
+
+== Open Standards & Interoperability
+
+GSBot aims to be cross-industry accessible.  See link:STANDARDS.adoc[]
+for the full map.  A non-exhaustive list of standards and proposals we
+target:
+
+* *Identity & feeds*: RSS/Atom + ActivityStreams 2.0 / ActivityPub for
+  ontology-driven news, safety and pricing event streams.
+* *Catalogues & product data*: aligns with schema.org `Product`,
+  GS1 Web Vocabulary, and the Open Apparel Registry identifier scheme.
+* *Impact data*: openLCA / ILCD data-exchange formats where feasible,
+  plus Project Transparency-style disclosures.
+* *Safety notices*: EU Safety Gate / OECD global-recall feeds,
+  normalised through the Zig adapter.
+* *Licensing*: SPDX identifiers throughout; REUSE-aligned layout;
+  Palimpsest dual-licensing where applicable.
+* *Interfaces*: OpenAPI for the future REST dashboard; gRPC/FFI for
+  the Zig/SPARK/Eclexia seams.
+
+== Status & Honesty
+
+*Current*: working Rust/SPARK Discord bot with the core scoring
+kernel, fixtures, and documentation.
+
+*Road-mapped*: Eclexia integration, verisimdb swap, kyaml fixtures,
+Zig adapter, Pareto UI, detachable assembly panel, ontology-driven
+RSS/ActivityStreams feed, dashboard, web API.
+
+This is a dogfood pilot.  It might fail.  If it does, we learn a ton.
+If it works, it becomes a reference for how the hyperpolymath estate's
+languages and databases come together in a real, value-laden, public
+interest project.
+
+== References
+
+* link:STANDARDS.adoc[Standards Map]
+* link:RSR.adoc[Rhodium Standard Repository Compliance]
+* link:TPCF.adoc[Tri-Perimeter Contribution Framework]
+* link:ROADMAP.adoc[Roadmap]
+* link:ARCHITECTURE.adoc[Architecture] (in `docs/ARCHITECTURE.adoc`)
+* Kautz, H. (2020) *The Third AI Summer*, AAAI Robert S. Engelmore
+  Memorial Lecture — taxonomy of neurosymbolic systems (Levels 1–6).
+* The oikosbot & echidna projects in the hyperpolymath fleet.

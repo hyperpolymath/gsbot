@@ -1,14 +1,40 @@
 # SPDX-License-Identifier: MPL-2.0
 [package]
 name = "gsbot"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
+rust-version = "1.77"
 license = "MPL-2.0"
 authors = ["Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"]
-description = "Garment Sustainability Bot — a Discord bot promoting sustainability in the garment and fashion industry (Rust/SPARK)"
+description = """
+GSBot — the Garment Sustainability Bot: a neurosymbolic (Kautz-6) chat + dashboard
+for fashion and textiles specialists.  Materials science, math and engineering
+meet triple-bottom-line ethics (permaculture fairness, environmental stewardship,
+economics, aesthetics, axiology).  Scores garments/materials/brands for ecological
+impact, water/carbon/energy/chemical load, biodegradability, durability, labour
+and animal welfare; supports Pareto-optimal trade-off analysis, ontology-driven
+RSS/ActivityStreams feeds, open-standards catalogue/safety-notice integration via
+a Zig-API adapter seam, a verisimdb/kyaml/Eclexia core target, and a detachable-
+panel assembly planner for ecological-vs-economic cost swaps.
+"""
+homepage = "https://github.com/hyperpolymath/gsbot"
 repository = "https://github.com/hyperpolymath/gsbot"
-keywords = ["discord", "sustainability", "fashion", "gsbot"]
-categories = ["command-line-utilities"]
+readme = "README.adoc"
+keywords = [
+    "sustainability", "fashion", "textiles", "garment", "materials-science",
+    "discord", "chatbot", "neurosymbolic", "triple-bottom-line", "lca",
+    "circular-economy", "pareto-optimality", "supply-chain", "permaculture",
+    "ecological-footprint", "open-standards", "spark", "verification",
+    "zig-ffi", "idris2-abi", "dragonfly", "lmdb",
+    "eclexia", "verisimdb",
+]
+categories = [
+    "command-line-utilities",
+    "science",
+    "simulation",
+    "database",
+    "web-programming",
+]
 
 [[bin]]
 name = "gsbot"
@@ -61,3 +87,12 @@ serde_json = "1.0.149"
 
 [dev-dependencies]
 tempfile = "3.27.0"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"

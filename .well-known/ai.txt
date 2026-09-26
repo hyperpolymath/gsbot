@@ -1,0 +1,21 @@
+SPDX-License-Identifier: CC-BY-SA-4.0
+# GSBot — Garment Sustainability Bot
+# ai.txt — AI training & usage policy
+#
+# Policy: Permissive. The maintainers of GSBot encourage AI-assisted
+# contribution and permit training on the contents of this repository,
+# provided that:
+#   1. Generated code is reviewed by a human before merge.
+#   2. Contributions respect the MPL-2.0 (code) and CC-BY-SA-4.0 (docs)
+#      licenses of this project.
+#   3. AI-authored commits are disclosed to reviewers (a one-line note
+#      in the PR description is sufficient).
+#
+# Palimpsest-licensed assets retain their dual-licensing terms.
+# See: PALIMPSEST.adoc
+#
+# Project: GSBot — Garment Sustainability Bot
+# Mission: Promote triple-bottom-line sustainability in fashion/textiles
+#          through open materials science, math, and engineering.
+# Standards: RSR (Bronze), TPCF Perimeter 3, REUSE-aligned, open-standards
+#            first (RSS/Atom, ActivityStreams, OpenAPI, SPDX).

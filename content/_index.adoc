@@ -2,4 +2,4 @@
 
 Welcome to GSBot - GitHub Security Bot documentation.
 
-See the link:/gsbot/README.md[README] for getting started.
+See the link:/gsbot/README.adoc[README] for getting started.
