@@ -1,5 +1,19 @@
-+++ title = "`GSBot Documentation`" sort_by = "`weight`" +++
++++
+title = "GSBot — Garment Sustainability Bot"
+sort_by = "weight"
+template = "index.html"
+generate_feed = true
++++
 
-Welcome to GSBot - GitHub Security Bot documentation.
+Welcome to **GSBot** — the **G**arment **S**ustainability **Bot**, a
+neurosymbolic (Kautz-6) chat + dashboard for fashion and textiles
+specialists. It brings materials science, maths and engineering together
+with triple-bottom-line ethics (permaculture fairness, environmental
+stewardship, real economics), Pareto-optimal trade-off analysis, and
+open-standards catalogue/safety feeds to help produce clothing more
+sustainably across every axis.
 
-See the link:/gsbot/README.md[README] for getting started.
+See the link:/gsbot/README.adoc[README] for getting started,
+link:/gsbot/ECOSYSTEM.adoc[Ecosystem & Vision] for the design story,
+link:/gsbot/STANDARDS.adoc[Standards Map] for the open-standards
+inventory, and the link:/gsbot/ROADMAP.adoc[Roadmap] for what's next.

@@ -1,11 +1,15 @@
 base_url = "https://hyperpolymath.github.io/gsbot"
-title = "GSBot"
-description = "GitHub Security Bot"
+title = "GSBot — Garment Sustainability Bot"
+description = "GSBot: a neurosymbolic Kautz-6 chat + dashboard for fashion & textiles specialists. Materials science, LCA, and triple-bottom-line Pareto-optimal trade-off analysis for sustainable garment production (Rust/SPARK, Eclexia pilot)."
 compile_sass = false
 build_search_index = true
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
 
 [markdown]
 highlight_code = true
 
 [extra]
 author = "hyperpolymath"
+repository = "https://github.com/hyperpolymath/gsbot"
+og_image = "/social-preview.svg"

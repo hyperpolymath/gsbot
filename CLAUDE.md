@@ -16,9 +16,16 @@ leaderboard.
 It was ported from a now-deleted Python prototype to **Rust** (with a
 designed-in SPARK seam). Behaviour is preserved; the implementation is Rust.
 
-- Crate: `gsbot` v0.2.0
+- Crate: `gsbot` v0.3.0
 - License: `MPL-2.0` (SPDX header on every source file)
 - Edition: 2021
+
+> **Read ECOSYSTEM.adoc and STANDARDS.adoc first.** They describe the
+> neurosymbolic/Pareto/open-standards vision this crate is pilot-building
+> toward (Eclexia, verisimdb, kyaml, Zig adapter, detachable assembly
+> panel, ActivityStreams safety/catalogue feeds). `src/domain.rs` and
+> `src/services.rs` are the current Rust v0.3 reality; new work should
+> move the architecture toward that vision without breaking the bot.
 
 ## Technology Stack (real, not aspirational)
 

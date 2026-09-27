@@ -14,7 +14,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 # Matched file extensions
-[*.{py,js,ts,jsx,tsx,json,yml,yaml,toml,md,html,css,scss,less,sass,sh,zsh,bash,fish,rst,txt,ql,sql,csv,tsv,xml,svg,rs,go,java,kt,kts,scala,rb,php,swift,dart,elm,lua,zig,coq,v,agda,idr,purs}]
+[*.{js,ts,jsx,tsx,json,yml,yaml,kyaml,toml,md,adoc,html,css,scss,less,sass,sh,zsh,bash,fish,sql,csv,tsv,xml,svg,rs,zig,adb,ads,ecx,c,cpp,h,hpp}]
 indent_size = 4
 
 # Makefile requires tabs

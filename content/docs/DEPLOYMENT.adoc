@@ -558,5 +558,5 @@ If an update fails:
 
 * GitHub Issues: https://github.com/hyperpolymath/gsbot/issues
 * Documentation: README.adoc, CLAUDE.md
-* Architecture: docs/ARCHITECTURE.md
-* API docs: docs/API.md
+* Architecture: docs/ARCHITECTURE.adoc
+* API docs: docs/API.adoc

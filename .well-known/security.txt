@@ -1,0 +1,12 @@
+SPDX-License-Identifier: CC-BY-SA-4.0
+# GSBot — Garment Sustainability Bot
+# security.txt (RFC 9116)
+
+Contact: mailto:j.d.a.jewell@open.ac.uk
+Contact: https://github.com/hyperpolymath/gsbot/security/advisories
+Expires: 2027-09-26T00:00:00Z
+Encryption: https://github.com/hyperpolymath/gsbot/blob/main/SECURITY.adoc
+Preferred-Languages: en
+Canonical: https://github.com/hyperpolymath/gsbot/.well-known/security.txt
+Policy: https://github.com/hyperpolymath/gsbot/blob/main/SECURITY.adoc
+Hiring: https://github.com/hyperpolymath

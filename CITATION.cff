@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# CITATION.cff — citation metadata for GSBot (academia / research reuse)
+cff-version: 1.2.0
+message: "If you use GSBot or its architecture in academic work, please cite it as below."
+title: "GSBot: A Neurosymbolic Pareto-Optimal Garment Sustainability Bot for Triple-Bottom-Line Fashion and Textiles Decision Support"
+abstract: >-
+  GSBot (the Garment Sustainability Bot) is an open-source neurosymbolic
+  (Kautz-6) chat and dashboard for fashion and textiles specialists,
+  delivering materials-science and engineering-grade sustainability
+  analysis across environmental (water, carbon, energy, chemicals,
+  biodegradability), social (fair labour, safety, transparency) and
+  economic (price-per-wear, durability-weighted cost) axes. It exposes
+  Pareto-optimal non-dominated trade-off surfaces, a detachable
+  assembly panel for swappable ecological-vs-economic bill-of-materials
+  recomputation, an open-standards catalogue/safety feed backbone (RSS,
+  Atom, ActivityStreams 2.0, schema.org, GS1, Open Apparel Registry,
+  ECHA REACH), a stable C-ABI verification seam for SPARK/Ada, and a
+  pilot of the Eclexia domain language on top of a verisimdb/kyaml
+  core target.
+type: software
+authors:
+  - family-names: Jewell
+    given-names: Jonathan D. A.
+    email: j.d.a.jewell@open.ac.uk
+    affiliation: "The Open University; hyperpolymath"
+identifiers:
+  - type: url
+    value: "https://github.com/hyperpolymath/gsbot"
+repository-code: "https://github.com/hyperpolymath/gsbot"
+url: "https://hyperpolymath.github.io/gsbot"
+license: MPL-2.0
+version: 0.3.0
+date-released: 2026-09-27
+keywords:
+  - sustainability
+  - fashion
+  - textiles
+  - life-cycle-assessment
+  - pareto-optimality
+  - triple-bottom-line
+  - neurosymbolic
+  - open-standards
+  - circular-economy
+  - supply-chain

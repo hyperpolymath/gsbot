@@ -97,9 +97,9 @@ solutions
 
 [arabic]
 . *Read the docs*:
-* README.md for project overview
-* CONTRIBUTING.md for contribution guidelines
-* CODE_OF_CONDUCT.md for community expectations
+* README.adoc for project overview
+* .github/CONTRIBUTING.md for contribution guidelines
+* CODE_OF_CONDUCT.adoc for community expectations
 . *Find an issue*:
 * Look for "`good first issue`" labels
 * Check "`help wanted`" issues
@@ -183,15 +183,15 @@ TPCF is part of the Rhodium Standard Repository (RSR) framework:
 * *TPCF*: Contribution and access control model
 * *Integration*: TPCF perimeter documented in RSR compliance
 
-See RSR.md for full Rhodium Standard Repository compliance.
+See RSR.adoc for full Rhodium Standard Repository compliance.
 
 === Questions?
 
 * *About TPCF*: Review this document
-* *About contributing*: See CONTRIBUTING.md
-* *About the project*: See README.md
-* *About conduct*: See CODE_OF_CONDUCT.md
-* *About security*: See SECURITY.md
+* *About contributing*: See .github/CONTRIBUTING.md
+* *About the project*: See README.adoc
+* *About conduct*: See CODE_OF_CONDUCT.adoc
+* *About security*: See SECURITY.adoc
 
 === Changes to Perimeter
 

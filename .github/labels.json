@@ -1,6 +1,6 @@
 {
   "_generated_from": ".github/labels.yml in hyperpolymath/.git-private-farm",
-  "_do_not_edit": "regenerate with scripts/gen-labels-json.py",
+  "_do_not_edit": "regenerate with the fleet labels tooling (do NOT reintroduce Python — this repo is Rust/SPARK and Hypatia bans Python)",
   "version": 1,
   "labels": [
     {

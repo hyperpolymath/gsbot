@@ -3,20 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ config.description }}">
+    <meta name="author" content="{{ config.extra.author }}">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}">
+    <meta property="og:description" content="{{ config.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ config.base_url | safe }}">
+    {% if config.extra.og_image %}<meta property="og:image" content="{{ config.base_url ~ config.extra.og_image | safe }}">{% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ config.title }}">
+    <meta name="twitter:description" content="{{ config.description }}">
+    <link rel="canonical" href="{{ config.base_url | safe }}">
+    <link rel="alternate" type="application/atom+xml" title="Atom feed" href="{{ config.base_url | safe }}/atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS feed" href="{{ config.base_url | safe }}/rss.xml">
     <title>{% block title %}{{ config.title }}{% endblock %}</title>
     <style>
-        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem; }
-        a { color: #0366d6; }
-        pre { background: #f6f8fa; padding: 1rem; overflow-x: auto; }
-        code { background: #f6f8fa; padding: 0.2rem 0.4rem; }
+        :root { --fg:#1a1a1a; --muted:#5a5a5a; --bg:#ffffff; --accent:#0a7d3b; --link:#0366d6; --code-bg:#f6f8fa; }
+        @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --muted:#a0a0a0; --bg:#0d1117; --accent:#3fb950; --link:#58a6ff; --code-bg:#161b22; } }
+        body { font-family: system-ui, -apple-system, sans-serif; max-width: 860px; margin: 0 auto; padding: 2rem 1rem; color: var(--fg); background: var(--bg); line-height: 1.55; }
+        a { color: var(--link); } a:visited { color: #6f42c1; }
+        header { border-bottom: 1px solid #eaecef; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+        header h1 { margin: 0; font-size: 1.6rem; } header h1 a { color: var(--fg); text-decoration: none; }
+        header p { color: var(--muted); margin: 0.3rem 0 0; font-size: 0.95rem; }
+        pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; }
+        code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 3px; font-size: 0.92em; }
+        pre code { padding: 0; }
+        footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eaecef; color: var(--muted); font-size: 0.85rem; }
+        nav.badge-row { margin-top: 0.5rem; font-size: 0.8rem; }
+        nav.badge-row span { display: inline-block; margin-right: 0.4rem; padding: 0.1rem 0.5rem; border-radius: 3px; background: var(--code-bg); color: var(--muted); }
     </style>
 </head>
 <body>
     <header>
-        <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+        <h1><a href="{{ config.base_url | safe }}">{{ config.title }}</a></h1>
+        <p>{{ config.description }}</p>
+        <nav class="badge-row">
+            <span>Rust/SPARK</span><span>Eclexia pilot</span>
+            <span>Pareto-optimal</span><span>Open standards</span>
+            <span>MPL-2.0</span>
+        </nav>
     </header>
     <main>
         {% block content %}{{ section.content | safe }}{% endblock %}
     </main>
+    <footer>
+        <p>GSBot is part of the <a href="https://github.com/hyperpolymath">hyperpolymath</a> estate.
+        See <a href="{{ config.extra.repository }}">GitHub</a> for source, issues and roadmap.</p>
+    </footer>
 </body>
 </html>

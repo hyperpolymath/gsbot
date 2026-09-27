@@ -327,7 +327,7 @@ We believe in recognising security researchers who help us improve.
 ==== Hall of Fame
 
 Researchers who report valid vulnerabilities will be acknowledged in our
-link:SECURITY-ACKNOWLEDGMENTS.md[Security Acknowledgments] (unless they
+link:SECURITY-ACKNOWLEDGMENTS.adoc[Security Acknowledgments] (unless they
 prefer anonymity).
 
 Recognition includes:
@@ -369,7 +369,7 @@ To stay informed about security updates:
 * *GitHub Security Advisories*: Published at
 https://github.com/hyperpolymath/gsbot/security/advisories[Security
 Advisories]
-* *Release notes*: Security fixes noted in link:CHANGELOG.md[CHANGELOG]
+* *Release notes*: Security fixes noted in link:CHANGELOG.adoc[CHANGELOG]
 
 ==== Update Policy
 
@@ -421,7 +421,7 @@ When using Gsbot, we recommend:
 * https://github.com/hyperpolymath.gpg[Our PGP Public Key]
 * https://github.com/hyperpolymath/gsbot/security/advisories[Security
 Advisories]
-* link:CHANGELOG.md[Changelog]
+* link:CHANGELOG.adoc[Changelog]
 * link:.github/CONTRIBUTING.md[Contributing Guidelines]
 * https://cve.mitre.org/[CVE Database]
 * https://www.first.org/cvss/calculator/3.1[CVSS Calculator]
@@ -440,7 +440,7 @@ via GitHub] or j.d.a.jewell@open.ac.uk
 |*General questions*
 |https://github.com/hyperpolymath/gsbot/discussions[GitHub Discussions]
 
-|*Other enquiries* |See link:README.md[README] for contact information
+|*Other enquiries* |See link:README.adoc[README] for contact information
 |===
 
 '''''

@@ -6,6 +6,63 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+== [0.3.0] - 2026-09-26
+
+=== Added
+- `ECOSYSTEM.adoc` — full vision doc: neurosymbolic Kautz-6 architecture,
+  detachable assembly panel, Pareto-optimality focus, Eclexia pilot,
+  verisimdb/kyaml migration targets, Zig unified API adapter, oikosbot
+  / echidna lineage.
+- `STANDARDS.adoc` — open-standards map (RSS/Atom/ActivityStreams,
+  schema.org/GS1/OAR, ILCD/openLCA, EU Safety Gate/ECHA, OpenAPI,
+  SPDX/REUSE, etc.).
+- `.well-known/{security.txt,ai.txt,humans.txt}` (RFC 9116 + project
+  policy files) — these were listed in RSR as present but the
+  directory was missing from the checkout.
+- `.env.example` — was referenced by the README but missing.
+- Richer `Cargo.toml` metadata: 20 keywords covering sustainability,
+  materials-science, LCA, circular-economy, neurosymbolic, Eclexia,
+  verisimdb, kyaml, Pareto, SPARK, etc.; expanded categories;
+  `rust-version`, `homepage`, `readme`, release profile.
+- Project badges for Open Standards, Neurosymbolic Kautz-6, Pareto
+  Optimality, Eclexia Pilot, Rust/SPARK+Zig stack.
+
+=== Fixed
+- All stale `*.md` links in `.adoc` documentation corrected to the
+  actual `.adoc` / `.md` files present in the tree (docs/, content/docs/,
+  RSR/TPCF/SECURITY/MAINTAINERS/ROADMAP/README).
+- RSR compliance-check `ls` invocation no longer claims phantom
+  `*.md` files.
+- Repository description/topics prepared (local metadata — push of
+  GitHub topics requires the `public_repo` scope on the auth token).
+
+- GitHub PR + issue templates (bug, feature, data-curation, config.yml),
+  a proper `PULL_REQUEST_TEMPLATE.md` with the RSR/TPCF/SPARK-seam
+  checklist, and `.github/repo-meta.yml` carrying the full repo
+  description and topic list for manual application to GitHub Settings
+  (the CI token lacks public_repo scope).
+- `CITATION.cff` for academic citation of GSBot and its methodology.
+- Zola site (`config.toml`, `templates/index.html`, `static/`) rethemed
+  with dark-mode CSS, Open Graph / Twitter / canonical meta tags, Atom
+  and RSS feeds, robots.txt, and a 1280×640 `social-preview.svg`.
+- `.gitattributes` and `.editorconfig` updated to cover `.adoc`,
+  `.ecx` (Eclexia), `.kyaml`, `.adb/.ads` (SPARK/Ada), and `Containerfile`/Justfile/Mustfile
+  line endings; the stale "Python files" entries removed (this repo is
+  Rust/SPARK and Hypatia bans Python).
+- Stale template copy fixed: `config.toml` and `content/_index.adoc`
+  previously described GSBot as "GitHub Security Bot" (a template
+  leftover), which was actively misleading.
+- `Cargo.toml` trimmed to crates.io limits: 5 keywords + 5 valid
+  category slugs, `rust-version`, release profile (thin LTO).
+- CLAUDE.md bumped to v0.3.0 and pointed at ECOSYSTEM.adoc /
+  STANDARDS.adoc as the first read for agents.
+
+=== Note
+- 0.3.0 is the "Ecosystem Tag" release: the codebase is unchanged in
+  its Rust/SPARK runtime behaviour, but the repository now *states
+  clearly what it wants to be* so contributors, bots, academics, and
+  fellow hyperpolymath projects can find it and plug in.
+
 == [0.2.0] - 2026-05-16
 
 === Changed
