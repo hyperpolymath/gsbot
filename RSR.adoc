@@ -17,13 +17,13 @@ implemented in *Rust* (with a designed-in SPARK verification seam — see
 
 ==== ✅ Documentation (Complete)
 
-* ✅ README.md - Comprehensive project overview
+* ✅ README.adoc - Comprehensive project overview
 * ✅ LICENSE - Mozilla Public License 2.0
-* ✅ SECURITY.md - Security policy and vulnerability reporting
-* ✅ CONTRIBUTING.md - Contribution guidelines
-* ✅ CODE_OF_CONDUCT.md - Community conduct expectations
-* ✅ MAINTAINERS.md - Maintainer information and governance
-* ✅ CHANGELOG.md - Version history and changes
+* ✅ SECURITY.adoc - Security policy and vulnerability reporting
+* ✅ .github/CONTRIBUTING.md - Contribution guidelines
+* ✅ CODE_OF_CONDUCT.adoc - Community conduct expectations
+* ✅ MAINTAINERS.adoc - Maintainer information and governance
+* ✅ CHANGELOG.adoc - Version history and changes
 
 ==== ✅ .well-known/ Directory (Complete)
 
@@ -60,7 +60,7 @@ kernel tests)
 
 ==== ✅ TPCF (Complete)
 
-* ✅ TPCF.md - Tri-Perimeter Contribution Framework declaration
+* ✅ TPCF.adoc - Tri-Perimeter Contribution Framework declaration
 * ✅ Perimeter 3 (Community Sandbox)
 * ✅ Clear contribution model
 * ✅ Transparent governance
@@ -173,7 +173,7 @@ Or manually:
 [source,bash]
 ----
 # Check documentation
-ls -la *.md *.adoc .well-known/
+ls -la *.adoc .well-known/ .github/CONTRIBUTING.md CLAUDE.md GEMINI.md
 
 # Check build system
 ls -la Justfile Mustfile Cargo.toml
@@ -306,15 +306,15 @@ verification
 === Questions?
 
 * *About RSR*: See this document
-* *About TPCF*: See TPCF.md
-* *About contributing*: See CONTRIBUTING.md
-* *About the project*: See README.md
+* *About TPCF*: See TPCF.adoc
+* *About contributing*: See .github/CONTRIBUTING.md
+* *About the project*: See README.adoc
 
 === References
 
 * RSR Framework: Part of broader Rhodium initiative
 * RFC 9116 (security.txt): https://www.rfc-editor.org/rfc/rfc9116.html
-* TPCF: See TPCF.md
+* TPCF: See TPCF.adoc
 
 '''''
 

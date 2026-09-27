@@ -1,0 +1,29 @@
+SPDX-License-Identifier: CC-BY-SA-4.0
+/* GSBot — Garment Sustainability Bot */
+/* A neurosymbolic (Kautz-6) chat + dashboard for fashion/textiles
+   sustainability: materials science, math, engineering, and
+   triple-bottom-line axiology — permaculture ethics, fair economics,
+   and real verifiable numbers.                               */
+
+/* TEAM */
+    Lead: Jonathan D.A. Jewell
+    Contact: j.d.a.jewell@open.ac.uk
+    GitHub: hyperpolymath
+    From: United Kingdom
+
+/* THANKS */
+    Fashion Revolution, Good On You, Sustainable Apparel Coalition,
+    Ellen MacArthur Foundation, and every open-standards contributor
+    making sustainable production legible.
+
+/* SITE */
+    Standards: RSR Bronze, TPCF Perimeter 3, SPDX, REUSE-aligned
+    Stack: Rust/SPARK (poise+serenity+sqlx+SQLite); Eclexia pilot;
+           verisimdb kernel target; kyaml for configuration; Pareto
+           optimality (oikosbot/echidna lineage); Zig unified API
+           adapter seam for catalogues, safety notices, live pricing.
+    Components: domain kernel (pure/total, C-ABI for SPARK), chat bot,
+                dashboard, ontology-driven RSS/ActivityStreams feed,
+                detachable-panel assembly planner, live safety/catalogue
+                integrations.
+    Last update: 2026-09-26

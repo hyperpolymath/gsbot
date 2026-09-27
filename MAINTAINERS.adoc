@@ -145,7 +145,7 @@ For sensitive matters (security, Code of Conduct violations):
 
 * Security: Use GitHub Security Advisories
 * Conduct: Contact maintainers via GitHub (details in
-CODE_OF_CONDUCT.md)
+CODE_OF_CONDUCT.adoc)
 
 === Permissions
 
@@ -167,7 +167,7 @@ CODE_OF_CONDUCT.md)
 
 When a new maintainer joins:
 
-* [ ] Add to MAINTAINERS.md
+* [ ] Add to MAINTAINERS.adoc
 * [ ] Grant repository access
 * [ ] Add to maintainers team on GitHub
 * [ ] Announce in GitHub Discussions
@@ -197,7 +197,7 @@ This project follows the Rhodium Standard Repository (RSR) framework.
 
 Current perimeter: *Perimeter 3 (Community Sandbox)*
 
-See TPCF.md for full Tri-Perimeter Contribution Framework details.
+See TPCF.adoc for full Tri-Perimeter Contribution Framework details.
 
 ==== License
 
@@ -218,8 +218,8 @@ their contributions to making fashion more sustainable.
 === Questions?
 
 * Open a GitHub Discussion for questions about maintainership
-* Review CONTRIBUTING.md for contribution guidelines
-* See CODE_OF_CONDUCT.md for community expectations
+* Review .github/CONTRIBUTING.md for contribution guidelines
+* See CODE_OF_CONDUCT.adoc for community expectations
 
 '''''
 

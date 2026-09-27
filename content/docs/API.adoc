@@ -331,7 +331,7 @@ Based on level achieved:
 Rows live in SQLite (schema: `+migrations/0001_init.sql+`) and are
 mapped to Rust structs in `+src/models.rs+`; the query/service layer is
 in `+src/services.rs+`. All correctness-critical scoring lives in the
-pure `+src/domain.rs+` kernel (the SPARK seam — see ARCHITECTURE.md).
+pure `+src/domain.rs+` kernel (the SPARK seam — see ARCHITECTURE.adoc).
 
 ==== Material
 

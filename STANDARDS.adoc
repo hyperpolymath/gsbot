@@ -1,0 +1,189 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+= Open Standards Map
+:toc: left
+:toclevels: 3
+:icons: font
+
+GSBot is built on — and publishes data against — open standards wherever
+practical, so it can interoperate across fashion, textiles, regulatory
+and supply-chain systems without proprietary lock-in.
+
+Legend: ✅ = in use today; 🧪 = planned / piloting; 🔭 = investigating.
+
+== Repository & Governance
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|https://reuse.software/[REUSE] (SPDX) |✅ |Every source file carries an
+SPDX-License-Identifier; LICENSES/ directory holds full texts.
+|https://spdx.dev/[SPDX] |✅ |License expressions and file-level tags.
+|link:RSR.adoc[RSR — Rhodium Standard Repository] |✅ Bronze |
+Repository layout, docs, CI, testing, TPCF.
+|link:TPCF.adoc[TPCF — Tri-Perimeter Contribution Framework] |✅ P3 |
+Graduated trust boundary for contributions.
+|https://www.rfc-editor.org/rfc/rfc9116[RFC 9116 (security.txt)] |✅ |
+`.well-known/security.txt` present.
+|Keep a Changelog + SemVer |✅ |CHANGELOG.adoc format; semver versions.
+|Conventional Commits |🧪 |Recommended for commit messages.
+|===
+
+== Data Formats & Serialisation
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|https://www.json.org/[JSON] (RFC 8259) |✅ |HTTP/API payloads, exports.
+|https://yaml.org/[YAML] 1.2 |🔶 superseded |Plain YAML is intentionally
+avoided for new fixture/config data in favour of kyaml (which is a
+typed, comment-preserving superset aligned with YAML 1.2 but with
+strict schemas). Legacy YAML files are migrated opportunistically.
+|kyaml |🧪 |Hyperpolymath YAML replacement; used for new fixture data
+and preference templates from v0.3 onward.
+|https://json-schema.org/[JSON Schema] 2020-12 |🧪 |Used to validate
+fixtures and feed payloads.
+|https://www.w3.org/TR/turtle/[Turtle] / https://www.w3.org/TR/n-quads/[N-Quads]
+|🔭 |Target serialisation for the materials ontology (see Ontologies below).
+|===
+
+== Feeds & Event Streams
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|https://www.rfc-editor.org/rfc/rfc4287[Atom (RFC 4287)] |🧪 |News,
+research, pricing event feeds.
+|RSS 2.0 |🧪 |Back-compat feed support.
+|https://www.w3.org/TR/activitystreams-core/[ActivityStreams 2.0] |🧪 |
+Ontology-driven event stream for safety notices, price changes, new
+data sheets — the "live signal" backbone.
+|https://www.w3.org/TR/activitypub/[ActivityPub] |🔭 |Federation with
+other open sustainability actors.
+|https://www.rfc-editor.org/rfc/rfc5005[RFC 5005 (Feed Paging & Archiving)]
+|🔭 |Long-running feeds.
+|WebSub |🔭 |Push delivery for subscribed feeds.
+|===
+
+== Product & Supply Chain
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|https://schema.org/Product[schema.org/Product] |🧪 |Product and material
+metadata mapping for external catalogue federation.
+|https://www.gs1.org/standards/gs1-web-vocabulary[GS1 Web Vocabulary] |🔭 |
+Barcode / GTIN / GLN interoperability.
+|https://openapparel.org/[Open Apparel Registry (OAR)] |🧪 |Supplier
+identifier alignment; mapped via Zig API adapter.
+|https://www.goodonyou.eco/[Good On You] methodology |🧪 |Brand rating
+dimension set (planet/people/animals) is compatible with our scoring
+kernel.
+|https://apparelcoalition.org/higg-index/[Higg Index / SAC] |🔭 |Impact
+factor alignment where data is openly licensed.
+|===
+
+== Life-Cycle Assessment & Impact
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|https://eplca.jrc.ec.europa.eu/LCDN/developerILCD.xhtml[ILCD] |🔭 |
+Life-cycle inventory data exchange.
+|https://openlca.org/[openLCA] data exchange |🔭 |Reference flows and
+unit-process data.
+|https://ghgprotocol.org/[GHG Protocol] |🧪 |Scope 1/2/3 carbon accounting
+conventions for the embedded scoring.
+|https://www.iso.org/standard/37456.html[ISO 14040/14044 (LCA)] |🔭 |
+Methodological alignment of the `domain` kernel.
+|https://www.iso.org/standard/43242.html[ISO 26000 (Social Responsibility)]
+|🔭 |Social-axis scoring conventions.
+|===
+
+== Safety & Regulatory Notices
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|EU Safety Gate (RAPEX) feed |🧪 |Non-food dangerous-product notices
+relevant to textiles (e.g. restricted dyestuffs, choking hazards),
+normalised via the Zig adapter.
+|https://www.cpsc.gov/[US CPSC] Recalls |🔭 |US recall feed alignment.
+|https://www.oecd.org/consumers/global-product-safety/[OECD Global Recalls]
+|🔭 |Cross-jurisdictional recall aggregation.
+|https://echa.europa.eu/[ECHA REACH / CLP / SVHC] |🧪 |Chemical restriction
+data used by the impact scorer (e.g. AZO dyes, PFAS, lead).
+|EU CSRD / ESRS |🔭 |Disclosure format alignment for brand reports.
+|===
+
+== Interfaces & Protocols
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|https://spec.openapis.org/oas/latest.html[OpenAPI 3.1] |🧪 |REST API
+contract for the dashboard and third-party integrations.
+|JSON-RPC 2.0 |🔭 |Optional low-overhead transport.
+|gRPC / Protobuf |🔭 |For the Zig-API adapter high-throughput path.
+|C ABI (stable) |✅ |The `domain::ffi` surface — SPARK/Eclexia/Zig
+seam — is a stable `extern "C"` ABI with versioned symbols.
+|https://discord.com/developers/docs/intro[Discord API] |✅ |Current
+primary chat surface via `poise`/`serenity`.
+|===
+
+== Identifiers
+
+[cols="3,2,6",options="header"]
+|===
+|Standard |Status |Notes
+
+|https://www.doi.org/[DOI] |🔭 |Citable snapshots of material data
+sheets and scoring reports.
+|UUIDv4 / v7 |🧪 |For opaque object IDs in exports and feeds.
+|ISCC (International Sustainability and Carbon Certification) |🔭 |
+Reference integration for biomass/bio-based materials.
+|GOTS, OEKO-TEX®, Fair Trade, B Corp, Bluesign |🧪 |Certification
+flags in the `Brand`/`Material` models; mappings to their public
+registries where accessible.
+|===
+
+== Licensing Stack
+
+[cols="3,2,6",options="header"]
+|===
+|License |Status |Applies to
+
+|MPL-2.0 |✅ |Code (Rust, Zig, SPARK, Eclexia modules).
+|CC-BY-SA-4.0 |✅ |Documentation, design assets, ontology content.
+|AGPL-3.0-or-later |✅ |Present in LICENSES/ — selected for components
+where network use is itself distribution (e.g. dashboard server code
+per the Palimpsest terms).
+|link:PALIMPSEST.adoc[Palimpsest dual-licensing] |✅ |Brand assets and
+dual-licensed components per estate policy.
+|===
+
+== Adding / Updating Standards
+
+Proposals for new standards go through:
+
+. An issue tagged `standards` with motivation and mapping to the
+   existing triple-bottom-line axes.
+. A short section in this document (link:STANDARDS.adoc[]) with the
+   status marker (✅ / 🧪 / 🔭).
+. Where the standard touches the scoring kernel, a property-based test
+   in `echidna` is added before it becomes ✅.
+
+== Cross-Industry Rationale
+
+Fashion/textiles is only one vertical.  The standards choices here are
+deliberately *horizontal* — nothing about the scoring kernel, the
+ontology, or the feed architecture is fashion-specific.  Future
+verticals (interior textiles, PPE, automotive fabrics, packaging)
+reuse the same primitives: material records, impact vectors, supplier
+identifiers, and Pareto trade-off surfaces.

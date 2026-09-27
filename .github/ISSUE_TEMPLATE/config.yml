@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Discussions
+    url: https://github.com/hyperpolymath/gsbot/discussions
+    about: Ask questions and discuss sustainability methodology / axiology.
+  - name: Security disclosure
+    url: https://github.com/hyperpolymath/gsbot/security/advisories
+    about: Please report security vulnerabilities privately via advisories (see SECURITY.adoc).
+  - name: Standards / open-interop proposals
+    url: https://github.com/hyperpolymath/gsbot/issues/new?labels=standards,enhancement&template=feature_request.md
+    about: Propose new open standards integrations (RSS/ActivityStreams, catalogues, safety feeds).

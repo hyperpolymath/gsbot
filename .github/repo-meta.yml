@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# Repository metadata block — for manual application via
+#   https://github.com/hyperpolymath/gsbot/settings
+# The arena bot token lacks public_repo scope, so these cannot be applied
+# via the API; please paste them into the Settings UI.
+name: gsbot
+description: >-
+  GSBot (Garment Sustainability Bot) — a neurosymbolic Kautz-6 chat+dashboard
+  for fashion & textiles. Materials science, math & engineering for
+  triple-bottom-line sustainability: water/carbon/energy/chemical footprints,
+  LCA, Pareto-optimal trade-offs, circular economy, open-standards
+  catalogue/safety feeds (RSS+ActivityStreams), SPARK verification seam.
+  Rust/SPARK • Eclexia pilot • verisimdb/kyaml • Zig-API adapter.
+homepage: https://hyperpolymath.github.io/gsbot
+topics:
+  - sustainability
+  - fashion
+  - textiles
+  - garment
+  - materials-science
+  - lca
+  - life-cycle-assessment
+  - circular-economy
+  - triple-bottom-line
+  - pareto-optimality
+  - neurosymbolic
+  - discord-bot
+  - rust
+  - spark-ada
+  - eclexia
+  - verisimdb
+  - kyaml
+  - permaculture
+  - supply-chain
+  - open-standards
+default_branch: main
+has_issues: true
+has_projects: false
+has_wiki: false
+has_discussions: true
+allow_squash_merge: true
+allow_merge_commit: false
+allow_rebase_merge: true
+delete_branch_on_merge: true
+# Social preview image: upload static/social-preview.svg (or a 1280×640 PNG
+# rendering of it) via Settings → Social preview.

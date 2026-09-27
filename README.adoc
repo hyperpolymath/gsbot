@@ -5,6 +5,11 @@
 
 image:https://img.shields.io/badge/License-MPL--2.0-blue.svg[License: MPL-2.0,link="https://github.com/hyperpolymath/palimpsest-license"]
 image:https://img.shields.io/badge/Philosophy-Palimpsest-indigo.svg[Palimpsest,link="https://github.com/hyperpolymath/palimpsest-license"]
+image:https://img.shields.io/badge/Standards-Open-brightgreen.svg[Open Standards,link=STANDARDS.adoc]
+image:https://img.shields.io/badge/Neurosymbolic-Kautz--6-purple.svg[Neurosymbolic Kautz-6,link=ECOSYSTEM.adoc]
+image:https://img.shields.io/badge/Pareto-Optimal-yellow.svg[Pareto Optimality,link=ECOSYSTEM.adoc]
+image:https://img.shields.io/badge/Eclexia-Pilot-orange.svg[Eclexia Pilot,link=ECOSYSTEM.adoc]
+image:https://img.shields.io/badge/Stack-Rust%2FSPARK%20%2B%20Zig-ff69b4.svg[Rust/SPARK+Zig]
 
 
 :toc: auto
@@ -12,7 +17,18 @@ image:https://img.shields.io/badge/Philosophy-Palimpsest-indigo.svg[Palimpsest,l
 :icons: font
 :source-highlighter: rouge
 
-A bot promoting sustainability in the garment and fashion industry through education, tracking, and actionable insights.
+The *G*arment *S*ustainability *Bot* — yes, the name is a gentle double
+entendre, and yes we mean it: the sustainability sweet-spot in fashion
+production, where material science, maths and engineering meet
+triple-bottom-line ethics (permaculture fairness, environmental
+stewardship, real economics).  A neurosymbolic (Kautz level-6) chat +
+dashboard for fashion and textiles specialists, with materials
+impact scoring, Pareto-optimal trade-off analysis, live catalogue &
+safety feeds over open standards, and a detachable assembly panel for
+swappable ecological-vs-economic costing.
+
+See link:ECOSYSTEM.adoc[Ecosystem & Vision] for the dogfood story and
+link:STANDARDS.adoc[Standards Map] for the open-standards inventory.
 
 [NOTE]
 
@@ -73,8 +89,8 @@ stable C ABI so a formally-verified SPARK/Ada module can be linked in its
 place with no caller changes — the architecture's verification seam.
 
 image:https://img.shields.io/badge/Rust-1.x-orange.svg[Rust,link=https://www.rust-lang.org/]
-image:https://img.shields.io/badge/RSR-Bronze-cd7f32.svg[RSR Compliant,link=RSR.md]
-image:https://img.shields.io/badge/TPCF-Perimeter%203-success.svg[TPCF Perimeter 3,link=TPCF.md]
+image:https://img.shields.io/badge/RSR-Bronze-cd7f32.svg[RSR Compliant,link=RSR.adoc]
+image:https://img.shields.io/badge/TPCF-Perimeter%203-success.svg[TPCF Perimeter 3,link=TPCF.adoc]
 
 === Sustainability Commands
 
@@ -217,9 +233,9 @@ gsbot/
 +-- migrations/
 |   +-- 0001_init.sql           # schema (applied via sqlx::migrate!)
 +-- docs/
-|   +-- API.md                  # Full command reference
-|   +-- ARCHITECTURE.md         # System design
-|   +-- DEPLOYMENT.md           # Deployment guide
+|   +-- API.adoc                # Full command reference
+|   +-- ARCHITECTURE.adoc       # System design
+|   +-- DEPLOYMENT.adoc         # Deployment guide
 +-- ROADMAP.adoc                # Development roadmap
 +-- CLAUDE.md                   # AI assistant instructions
 +-- docker-compose.yml
@@ -310,9 +326,9 @@ just format                  # or: cargo fmt --all
 
 == Documentation
 
-* link:docs/API.md[API Reference] - Complete command documentation
-* link:docs/ARCHITECTURE.md[Architecture] - System design and patterns
-* link:docs/DEPLOYMENT.md[Deployment] - Production deployment guide
+* link:docs/API.adoc[API Reference] - Complete command documentation
+* link:docs/ARCHITECTURE.adoc[Architecture] - System design and patterns
+* link:docs/DEPLOYMENT.adoc[Deployment] - Production deployment guide
 * link:ROADMAP.adoc[Roadmap] - Development roadmap and future features
 
 == Contributing

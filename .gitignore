@@ -1,18 +1,28 @@
-# Dependencies
-node_modules/
-.vendor/
-dist/
-build/
-target/
-bin/
-*.egg-info/
-__pycache__/
-.venv/
-venv/
-.env/
+# SPDX-License-Identifier: MPL-2.0
+# Build artefacts (Rust/Cargo)
+/target/
+/debug/
+/release/
+/dist/
+/build/
+/bin/
+*.rlib
+*.rmeta
+*.so
+*.dylib
+*.dll
+Cargo.lock.bak
+
+# Environment / secrets
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+
+# Data / runtime artefacts
+/data/*.db
+/data/*.db-*
+/logs/
+*.log
 
 # IDE
 .idea/
@@ -20,26 +30,29 @@ venv/
 *.swp
 *.swo
 *~
+.project
+.classpath
+.idea_modules/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
-logs/
-
-# Test coverage
-coverage/
-.nyc_output/
+# Test coverage / analysis
+/coverage/
+/tarpaulin-report*
+/grcov-report/
+*.profraw
+*.lcov
 
 # Cache
-harden/
 .cargo/registry/
 .cargo/git/
+.hypatia/
+.must/
 
 # Temporary files
 *.tmp
 *.temp
-tmp/
-temp/
+/tmp/
+/temp/
